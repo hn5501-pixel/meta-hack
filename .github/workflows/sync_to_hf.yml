@@ -15,4 +15,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://harsha0831:${HF_TOKEN}@huggingface.co/spaces/harsha0831/code-review-env main
+        run: git push --force https://harsha0831:${HF_TOKEN}@huggingface.co/spaces/harsha0831/code-review-env main
