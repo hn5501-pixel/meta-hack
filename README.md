@@ -1,3 +1,11 @@
+---
+title: Code Review Env
+emoji: 👾
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+---
 # CodeReviewEnv 🔍
 
 **OpenEnv Environment | Meta PyTorch OpenEnv Hackathon x Scaler**
