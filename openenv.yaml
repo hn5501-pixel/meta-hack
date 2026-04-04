@@ -1,0 +1,66 @@
+name: code-review-env
+version: "1.0.0"
+description: >
+  A real-world environment where an AI agent acts as a software code reviewer.
+  The agent receives code snippets containing bugs, security vulnerabilities, and
+  style violations. It must identify and report issues accurately across three
+  difficulty levels: reviewing simple functions (easy), reviewing class-level
+  code with subtle logic bugs (medium), and reviewing security-critical code
+  with injection vulnerabilities and race conditions (hard).
+
+domain: software-engineering
+tags:
+  - code-review
+  - security
+  - static-analysis
+  - real-world
+  - openenv
+
+observation_space:
+  type: object
+  description: "Current code snippet to review plus context"
+  fields:
+    code: string
+    language: string
+    task_description: string
+    step_number: integer
+    previous_findings: list
+    hint: string  # optional, provided when score is low
+
+action_space:
+  type: object
+  description: "Agent's code review action"
+  fields:
+    findings: list
+    severity: string
+    line_references: list
+    recommendation: string
+
+reward_range: [0.0, 1.0]
+
+tasks:
+  - name: simple-function-review
+    difficulty: easy
+    description: "Review a simple Python function for basic bugs and style issues"
+  - name: class-logic-review
+    difficulty: medium
+    description: "Review a Python class with subtle logic bugs and edge case failures"
+  - name: security-code-review
+    difficulty: hard
+    description: "Review security-critical code for SQL injection, race conditions, and auth flaws"
+
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+
+docker:
+  build_context: .
+  dockerfile: Dockerfile
+
+huggingface:
+  space_sdk: docker
+  tags:
+    - openenv
+    - code-review
+    - reinforcement-learning
