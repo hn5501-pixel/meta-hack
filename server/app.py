@@ -21,13 +21,12 @@ app = FastAPI(
     version="1.0.0",
 )
 
-def start():
+def main():
     import uvicorn
-    # When deployed, it might run this start script using `server` command
     uvicorn.run("server.app:app", host="0.0.0.0", port=7860)
 
 if __name__ == "__main__":
-    start()
+    main()
 
 
 # Single global env instance (stateful per container)
