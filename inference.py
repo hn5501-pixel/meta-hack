@@ -19,7 +19,7 @@ from openai import OpenAI
 
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME   = os.getenv("MODEL_NAME",   "Qwen/Qwen2.5-72B-Instruct")
-API_KEY      = os.getenv("HF_TOKEN",     "")
+API_KEY      = os.getenv("HF_TOKEN",     "not-set")
 BASE_URL     = os.getenv("BASE_URL",     "http://localhost:7860")
 TASK_NAME    = os.getenv("TASK_NAME",    "simple-function-review")
 BENCHMARK    = "code-review-env"
