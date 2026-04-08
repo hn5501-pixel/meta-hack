@@ -9,13 +9,17 @@ description = "A code review environment for the OpenEnv Hackathon"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi==0.115.0",
-    "uvicorn[standard]==0.30.6",
-    "pydantic==2.9.2",
-    "openai==1.51.0",
-    "requests==2.32.3",
-    "pyyaml==6.0.2"
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "openai",
+    "requests",
+    "pyyaml",
+    "openenv-core>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:start"
 
 [tool.setuptools.packages.find]
 include = ["server*"]
